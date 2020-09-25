@@ -60,13 +60,13 @@ jobs:
       # job-deploy-artifacts
       - name: Setup SSH key
         # only do this on master in the home repo
-        if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'"
+        if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
         run: |
           eval "$(ssh-agent -s)"
           ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
       - name: Publish Artifacts
         # only do this on master
-        if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'"
+        if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
         uses: stefanzweifel/git-auto-commit-action@v4.4.1
         with:
           repository: git-content
